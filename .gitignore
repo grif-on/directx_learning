@@ -1,0 +1,5 @@
+#compiled things
+out
+
+#IDE local settings
+.vscode

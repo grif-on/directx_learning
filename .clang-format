@@ -1,0 +1,61 @@
+# Clang docs: http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+
+# Default ruleset
+BasedOnStyle: Google
+
+
+# Allow double brackets such as std::vector<std::vector<int>> .
+Standard: Cpp11
+
+# Indent 2 spaces at a time .
+IndentWidth: 2
+UseTab: Never
+
+# Use 0 space negative offset for access modifiers .
+# Note - bugged when lower than (IndentWidth * -1) .
+AccessModifierOffset: -2
+
+# Disable delition of empty lines .
+MaxEmptyLinesToKeep: 999
+
+# Make lines under any columns long (9999) for single cleanup of someone else files .
+# After that better set it to 0 to keep manual control over such formating .
+ColumnLimit: 0
+
+# Adjacent "#include" lines will be autosorted .
+SortIncludes: true
+IncludeBlocks: Preserve
+
+# Indent only adjacent macroses .
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+
+# Indent nested Pre Processor directives , but keep hash near words (i.e. "    #include <vector>" instead of "#    include <vector>") .
+IndentPPDirectives: BeforeHash
+
+# Never break before "{}" braces .
+BreakBeforeBraces: Attach
+
+# Indent case labels one level from the switch statement .
+IndentCaseLabels: true
+
+# Left-align pointers and references .
+PointerAlignment: Left
+
+# Keep multiline binary operands aligned .
+AlignOperands: true
+
+# Keep adjacent "=" aligned .
+AlignConsecutiveAssignments: true
+
+# Don't make single line case labels to be a multiline ones .
+AllowShortCaseLabelsOnASingleLine: true
+
+# Useful for spacing out functions in classes .
+KeepEmptyLinesAtTheStartOfBlocks: true
+
+# Don't erease empty line at the end of file .
+KeepEmptyLinesAtEOF: true
