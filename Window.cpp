@@ -4,6 +4,15 @@
 
 LRESULT CALLBACK windowProcessing(HWND handle, UINT message, WPARAM w_param, LPARAM l_param) {
 
+  switch (message) {
+    case WM_CLOSE:
+    case WM_DESTROY:
+
+      PostQuitMessage(0);
+      
+      return 0;
+  }
+
   return DefWindowProc(handle, message, w_param, l_param);
 }
 
