@@ -1,16 +1,20 @@
 #include <Windows.h>
 
+#include "Renderer.h"
 #include "Window.h"
 
 int CALLBACK WinMain(HINSTANCE app_instance, HINSTANCE previous_instance, LPSTR arguments, int arguments_count) {
-  
-  //AllocConsole();
-  //// requires #include <iostream> at the top of the file
-  //freopen("conin$", "r", stdin);
-  //freopen("conout$", "w", stdout);
-  //freopen("conout$", "w", stderr);
+
+  /*
+  AllocConsole();
+  // requires #include <iostream> at the top of the file
+  freopen("conin$", "r", stdin);
+  freopen("conout$", "w", stdout);
+  freopen("conout$", "w", stderr);
+  */
 
   Window window(100, 100, 800, 600);
+  Renderer renderer(window);
 
   MSG message = {0};
   while (true) {
@@ -22,6 +26,16 @@ int CALLBACK WinMain(HINSTANCE app_instance, HINSTANCE previous_instance, LPSTR 
         break;
       }
     }
+
+    // ...
+    // our update code
+    // ...
+
+    renderer.beginFrame();
+    // ...
+    // our drawing code
+    // ...
+    renderer.endFrame();
   }
 
   return 0;

@@ -1,5 +1,3 @@
-#include <Windows.h>
-
 #include "Window.h"
 
 LRESULT CALLBACK windowProcessing(HWND handle, UINT message, WPARAM w_param, LPARAM l_param) {
@@ -9,7 +7,7 @@ LRESULT CALLBACK windowProcessing(HWND handle, UINT message, WPARAM w_param, LPA
     case WM_DESTROY:
 
       PostQuitMessage(0);
-      
+
       return 0;
   }
 
@@ -24,8 +22,8 @@ Window::Window(int screen_x, int screen_y, int width, int height) {
   window_class.lpszClassName = (LPCSTR) "DirectXLearing";
   RegisterClass(&window_class);
 
-  CreateWindow((LPCSTR) "DirectXLearing", (LPCSTR) "DirectX learning",
-               WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_VISIBLE,
-               screen_x, screen_y, width, height,
-               nullptr, nullptr, nullptr, nullptr);
+  handle = CreateWindow((LPCSTR) "DirectXLearing", (LPCSTR) "DirectX learning",
+                        WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_VISIBLE,
+                        screen_x, screen_y, width, height,
+                        nullptr, nullptr, nullptr, nullptr);
 }
