@@ -23,7 +23,7 @@ Window::Window(int screen_x, int screen_y, int width, int height) {
   RegisterClass(&window_class);
 
   handle = CreateWindow((LPCSTR) "DirectXLearing", (LPCSTR) "DirectX learning",
-                        WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_VISIBLE,
+                        WS_POPUP | WS_CAPTION | WS_SYSMENU /*| WS_MAXIMIZE*/ | WS_VISIBLE | WS_THICKFRAME | WS_GROUP | WS_TABSTOP,
                         screen_x, screen_y, width, height,
                         nullptr, nullptr, nullptr, nullptr);
 }
