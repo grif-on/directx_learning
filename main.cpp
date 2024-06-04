@@ -1,6 +1,7 @@
 #include <Windows.h>
 
 #include "Renderer.h"
+#include "Triangle.h"
 #include "Window.h"
 
 int CALLBACK WinMain(HINSTANCE app_instance, HINSTANCE previous_instance, LPSTR arguments, int arguments_count) {
@@ -15,6 +16,8 @@ int CALLBACK WinMain(HINSTANCE app_instance, HINSTANCE previous_instance, LPSTR 
 
   Window window(100, 100, 800, 600);
   Renderer renderer(window);
+
+  Triangle triangle(renderer);
 
   MSG message = {0};
   while (true) {
@@ -32,9 +35,9 @@ int CALLBACK WinMain(HINSTANCE app_instance, HINSTANCE previous_instance, LPSTR 
     // ...
 
     renderer.beginFrame();
-    // ...
-    // our drawing code
-    // ...
+
+    triangle.draw(renderer);
+
     renderer.endFrame();
   }
 

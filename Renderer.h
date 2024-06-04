@@ -9,6 +9,8 @@ public:
   Renderer(Window& window);
   void beginFrame();
   void endFrame();
+  ID3D11Device* getDevice() { return device; }
+  ID3D11DeviceContext* getDeviceContext() { return device_context; }
 
 private:
   void createDevice(Window& window);
