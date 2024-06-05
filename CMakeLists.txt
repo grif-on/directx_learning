@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.28.1)
 project(directx_learning VERSION 0.1.0 LANGUAGES C CXX)
 
 set (CPPS WIN32 main.cpp Window.cpp Renderer.cpp Triangle.cpp)
