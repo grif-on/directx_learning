@@ -6,7 +6,7 @@
     {
       "label": "Run already compiled",
       "type": "shell",
-      "command": "D:\\git\\direcx_learning\\out\\build\\VS64\\Debug\\direcx_learning.exe",
+      "command": "cd .\\out\\build\\VS64\\Debug\\ && .\\directx_learning.exe",
       "presentation": {
         // Reveal the output only if unrecognized errors occur.
         "reveal": "silent"
