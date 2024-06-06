@@ -21,4 +21,5 @@ private:
   ID3D11DeviceContext* device_context = nullptr;
 
   ID3D11RenderTargetView* render_target_view = nullptr;  // aka surface/texture
+  D3D11_TEXTURE2D_DESC back_buffer_description;
 };

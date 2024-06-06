@@ -32,10 +32,18 @@ void Renderer::createRenderTargetView() {
   ID3D11Texture2D* back_buffer = nullptr;
   swap_chain->GetBuffer(0 /*index of the buffer*/, __uuidof(ID3D11Texture2D), (void**)&back_buffer);
   device->CreateRenderTargetView(back_buffer, nullptr, &render_target_view);
+  back_buffer->GetDesc(&back_buffer_description);
   back_buffer->Release();
 }
 
 void Renderer::beginFrame() {
+  // bind the render target
+  device_context->OMSetRenderTargets(1, &render_target_view, nullptr);
+
+  // set viewport
+  CD3D11_VIEWPORT viewport = CD3D11_VIEWPORT(0.0f, 0.0f, back_buffer_description.Width, back_buffer_description.Height);
+  device_context->RSSetViewports(1, &viewport);
+
   // Set the background color
   float clearColor[] = {.25f, .5f, 1.0f, 1.0f};
   device_context->ClearRenderTargetView(render_target_view, clearColor);
