@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "Panic.h"
 
 
 Renderer::Renderer(Window& window) {
@@ -22,10 +23,7 @@ void Renderer::createDevice(Window& window) {
                                                  nullptr, 0, D3D11_SDK_VERSION, &swap_chain_description,
                                                  &swap_chain, &device, nullptr, &device_context);
 
-  if (result != S_OK) {
-    MessageBox(nullptr, "Failed to initialize DirectX11 swap chain", "Error", MB_OK);
-    exit(1);
-  }
+  PANIC(result != S_OK, "Failed to initialize DirectX11 swap chain");
 }
 
 void Renderer::createRenderTargetView() {
