@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include <fstream>
 
 #include "Triangle.h"
@@ -52,6 +53,11 @@ void Triangle::createMesh(Renderer& renderer) {
 void Triangle::createShaders(Renderer& renderer) {
   std::ifstream vertex_shader_file("shaders/DefaultVertexShader.cso", std::ios::binary);
   std::ifstream pixel_shader_file("shaders/DefaultPixelShader.cso", std::ios::binary);
+
+  if (!vertex_shader_file || !pixel_shader_file) {
+    MessageBox(nullptr, "Failed to load default shaders", "Error", MB_OK);
+    exit(1);
+  }
 
   std::vector<char> vertex_shader_data = {std::istreambuf_iterator<char>(vertex_shader_file), std::istreambuf_iterator<char>()};
   std::vector<char> pixel_shader_data  = {std::istreambuf_iterator<char>(pixel_shader_file), std::istreambuf_iterator<char>()};
