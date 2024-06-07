@@ -44,7 +44,7 @@ void Triangle::createMesh(Renderer& renderer) {
       {0.0f, 1.0f, 0.0f, 1.0f, 0.0f},
       {1.0f, -1.0f, 0.0f, 0.0f, 1.0f}};
 
-  CD3D11_BUFFER_DESC vertex_buffer_description = CD3D11_BUFFER_DESC(sizeof(vertices), D3D10_BIND_VERTEX_BUFFER);
+  CD3D11_BUFFER_DESC vertex_buffer_description = CD3D11_BUFFER_DESC(sizeof(vertices), D3D11_BIND_VERTEX_BUFFER);
   D3D11_SUBRESOURCE_DATA vertext_data          = {0};
   vertext_data.pSysMem                         = vertices;
   renderer.getDevice()->CreateBuffer(&vertex_buffer_description, &vertext_data, &vertex_buffer);
